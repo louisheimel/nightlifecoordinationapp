@@ -1,12 +1,22 @@
 'use strict';
 
 var express = require('express');
+var exphbs = require('express-handlebars');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
+var bodyParser = require('body-parser');
 
 var app = express();
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+app.set('views', 'app/views');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 require('dotenv').load();
 require('./app/config/passport')(passport);
 

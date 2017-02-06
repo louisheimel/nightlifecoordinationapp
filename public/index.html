@@ -4,7 +4,7 @@
 
 	<head>
 		<title>Nightlife Coordination App</title>
-		
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
 	</head>
 
@@ -13,7 +13,17 @@
 	</header>
 
 	<body>
-		
+		<div class="container">
+			<form method="GET" action="/searchvenues">
+				<h1>Plans tonight?</h1>
+				<h2>
+					Where are you located?
+				</h2>
+				<input type="text" id="search" placeholder="Location?"/>
+				<button type="submit">Find venue</button>
+			</form>
+
+		</div>
 	</body>
 
 </html>

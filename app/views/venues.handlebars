@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Restaurants in your area</h1>
+    <ul id="businesses">
+        {{!--each business has a name, an id, an image_url, and a snippet_text--}}
+        {{#each businesses}}
+            <li>
+                <img src="{{this.image_url}}" />
+                <p>{{this.name}}</p>
+                <p>{{this.snippet_text}}</p>
+                <a href="#" data-id={{this.id}}><span></span> Going</a>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+<script src="../controllers/venueController.client.js"></script>
