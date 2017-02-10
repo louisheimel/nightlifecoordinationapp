@@ -11,3 +11,7 @@
 #businesses li p:nth-of-type(1) {
 	font-weight: bold;
 }
+
+.form-control {
+	margin-bottom: 15px;
+}
