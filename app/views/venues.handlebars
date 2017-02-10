@@ -1,5 +1,15 @@
 <div class="container">
     <h1>Restaurants in your area</h1>
+    {{#if loggedIn}}
+        <h2><a href="/logout" class="action">Logout</a></h2>
+    {{else}}
+        <h2><a href="/login" class="action">Log in to show where you're going</a></h2>
+    {{/if}}
+    <form action="/searchvenues">
+        <h2>Search</h2>
+        <input type="text" name="search" placeholder="Location?"/>
+        <button type="submit">Find venue</button>
+    </form>
     <ul id="businesses">
         {{!--each business has a name, an id, an image_url, and a snippet_text--}}
         {{#each businesses}}
@@ -7,9 +17,15 @@
                 <img src="{{this.image_url}}" />
                 <p>{{this.name}}</p>
                 <p>{{this.snippet_text}}</p>
-                <a href="#" data-id={{this.id}}><span></span> Going</a>
+                {{!--conditionally render link if user is signed in--}}
+                {{#if ../loggedIn}}
+                  <a href="#" data-id={{this.id}} class="venue_count"><span>{{this.number_going}}</span> Going</a>
+                {{else}}
+                  <p class="venue_count" data-id={{this.id}}><span>{{this.number_going}}</span> going</p>
+                {{/if}}
             </li>
         {{/each}}
     </ul>
 </div>
+<script src="../common/ajax-functions.js"></script>
 <script src="../controllers/venueController.client.js"></script>
