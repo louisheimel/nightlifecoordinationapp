@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Restaurants in your area</h1>
+    <h1>Bars in your area</h1>
     {{#if loggedIn}}
         <h2><a href="/logout" class="action">Logout</a></h2>
     {{else}}
@@ -8,7 +8,7 @@
     <form action="/searchvenues">
         <h2>Search</h2>
         <input type="text" name="search" placeholder="Location?"/>
-        <button type="submit">Find venue</button>
+        <button type="submit">Find bar</button>
     </form>
     <ul id="businesses">
         {{!--each business has a name, an id, an image_url, and a snippet_text--}}

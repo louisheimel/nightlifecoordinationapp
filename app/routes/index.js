@@ -100,7 +100,7 @@ module.exports = function (app, passport) {
 				token_secret: "ksAG3VgXM2bPSMPkUD3kkkuvWEc",
 			});
 			
-			yelp.search({location: req.location})
+			yelp.search({location: req.location, term: 'bar'})
 				.then(function(data) {
 					var first_twenty_businesses = _.first(data.businesses, 20)
 													.map((e) => { return _.pick(e, 'name', 'snippet_text', 'id', 'image_url')});
