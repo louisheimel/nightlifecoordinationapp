@@ -32,7 +32,7 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(function (req, res) {
-			res.render('../views/search');
+			res.render('search.handlebars');
 		});
 		
 	// Twitter routes
