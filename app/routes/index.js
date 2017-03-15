@@ -105,7 +105,7 @@ module.exports = function (app, passport) {
 					var first_twenty_businesses = _.first(data.businesses, 20)
 													.map((e) => { return _.pick(e, 'name', 'snippet_text', 'id', 'image_url')});
 													;
-					res.render('../views/venues', {businesses: first_twenty_businesses, loggedIn: req.loggedIn});
+					res.render('venues.handlebars', {businesses: first_twenty_businesses, loggedIn: req.loggedIn});
 				});
 		});
 		
@@ -119,11 +119,6 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			req.logout();
 			res.redirect(req.session.redirectUrl ? req.session.redirectUrl : '/');
-		});
-
-	app.route('/profile')
-		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/profile.html');
 		});
 
 	app.route('/api/:id')
