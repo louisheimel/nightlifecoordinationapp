@@ -121,6 +121,11 @@ module.exports = function (app, passport) {
 			res.redirect(req.session.redirectUrl ? req.session.redirectUrl : '/');
 		});
 
+	app.route('/profile')
+		.get(isLoggedIn, function (req, res) {
+			res.sendFile(path + '/public/profile.html');
+		});
+
 	app.route('/api/:id')
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
