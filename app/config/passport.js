@@ -1,3 +1,4 @@
+// adapted from https://scotch.io/tutorials/easy-node-authentication-twitter
 'use strict';
 
 var GitHubStrategy = require('passport-github').Strategy;
