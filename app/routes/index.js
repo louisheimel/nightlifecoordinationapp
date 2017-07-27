@@ -32,7 +32,7 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(function (req, res) {
-			res.render('../views/search');
+			res.render('search.handlebars');
 		});
 		
 	// Twitter routes
@@ -105,7 +105,7 @@ module.exports = function (app, passport) {
 					var first_twenty_businesses = _.first(data.businesses, 20)
 													.map((e) => { return _.pick(e, 'name', 'snippet_text', 'id', 'image_url')});
 													;
-					res.render('../views/venues', {businesses: first_twenty_businesses, loggedIn: req.loggedIn});
+					res.render('venues.handlebars', {businesses: first_twenty_businesses, loggedIn: req.loggedIn});
 				});
 		});
 		

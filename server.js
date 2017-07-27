@@ -10,9 +10,9 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
-app.set('views', 'app/views');
+app.engine('handlebars', exphbs({defaultLayout: 'main', partialsDir: __dirname + '/app/views/partials', layoutsDir: __dirname + '/app/views/layouts'}));
+app.set('view engine', 'express-handlebars');
+app.set('views','app/views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
